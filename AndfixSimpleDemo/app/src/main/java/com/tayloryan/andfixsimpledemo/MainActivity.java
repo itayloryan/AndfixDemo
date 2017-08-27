@@ -1,10 +1,13 @@
 package com.tayloryan.andfixsimpledemo;
 
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+
+import java.io.File;
 
 public class MainActivity extends AppCompatActivity implements OnClickListener {
 
@@ -19,6 +22,10 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         mResultButton = (Button) findViewById(R.id.result);
         mCalculateButton = (Button) findViewById(R.id.calculate);
         mFixButton = (Button) findViewById(R.id.fix);
+
+        mResultButton.setOnClickListener(this);
+        mCalculateButton.setOnClickListener(this);
+        mFixButton.setOnClickListener(this);
     }
 
     @Override
@@ -37,6 +44,11 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     }
 
     private void doFix() {
+        DexLoader dexLoader = new DexLoader(this);
+        dexLoader.loadDex(new File(Environment.getExternalStorageDirectory() + "/Download/fix.dex"));
+    }
 
+    static {
+        System.loadLibrary("native-lib");
     }
 }

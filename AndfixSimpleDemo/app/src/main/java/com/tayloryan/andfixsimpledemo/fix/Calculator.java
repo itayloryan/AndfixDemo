@@ -1,6 +1,6 @@
 package com.tayloryan.andfixsimpledemo.fix;
 
-import com.tayloryan.andfixdemo.MethidReplace;
+import com.tayloryan.andfixsimpledemo.MethodReplace;
 
 /**
  * Created by taylor.yan on 8/25/17.
@@ -8,7 +8,7 @@ import com.tayloryan.andfixdemo.MethidReplace;
 
 public class Calculator {
 
-    @MethidReplace(cls = "com.tayloryan.andfixdemo.Calculator", method = "calculate")
+    @MethodReplace(clazz = "com.tayloryan.andfixsimpledemo.Calculator", method = "calculate")
     public int calculate() {
         int i = 1;
         int j = 10;

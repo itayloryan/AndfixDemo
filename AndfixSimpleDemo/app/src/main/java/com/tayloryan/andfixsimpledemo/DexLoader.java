@@ -52,7 +52,7 @@ public class DexLoader {
                 continue;
             }
 
-            String targetClsName = replace.cls();
+            String targetClsName = replace.clazz();
             String targetMethodName = replace.method();
 
             try {
